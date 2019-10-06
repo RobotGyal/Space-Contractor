@@ -1,3 +1,23 @@
 ~ Need NASA API
 ~ Bootstrap for styling...spacey
 ~ Dropdown list for pages changing??
+
+
+*** CRUD ***
+~~Create
+
+
+~Read
+
+
+~Update
+
+
+~Destroy
+
+
+*** USERS CAN... ***
+Navigate pages () - 
+See pictures (read) - GET
+Add items to cart (create) - POST
+Leave reviews of items (create) - POST
