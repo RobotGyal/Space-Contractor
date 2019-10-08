@@ -1,4 +1,33 @@
 html {
     color: crimson;
-    text-align: center
+    text-align: center;
+    background-image: url('space.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%
 }
+
+
+div.polaroid {
+    width: 25%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
+    margin: 100px 100px
+  }
+
+img{
+    width: 100%
+}
+
+div.container {
+    text-align: center;
+    padding: 1px 1px;
+  }
+
+  button{
+    border: rgba(255, 0, 0, 0.479);
+    background-color: silver;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
