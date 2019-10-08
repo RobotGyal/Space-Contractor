@@ -7,15 +7,35 @@ html {
 }
 
 
-div.polaroid {
-    width: 25%;
+div.polaroid1 {
+    width: 20%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
-    margin: 100px 100px
+    margin: 75px 80px
   }
 
+  div.polaroid2 {
+    width: 20%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
+    margin: 75px 80px
+  }
+
+  div.polaroid3 {
+    width: 20%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
+    margin: 75px 80px
+  }
+
+
+div{
+  display:block;
+  float:left;
+}
+
 img{
-    width: 100%
+  width: 100%
 }
 
 div.container {

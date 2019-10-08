@@ -17,7 +17,7 @@ def test():
     return render_template('store_index.html', space_items=space_items.find())
 
 # Route for VIEWING store items
-@app.route('/store/display')
+@app.route('/store')
 def store_display():
     return render_template('store_display.html', space_items=space_items)
 
