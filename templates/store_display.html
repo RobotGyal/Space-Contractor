@@ -1,45 +1,28 @@
+<!doctype html>
+
 {% extends 'base.html' %}
+
 
 {% block title %}
 <!--Title and Header-->
     <h1>I-Planetery</h1>
     <h3> Browse to your Commanders Content! </h3>
-
+    
 <!--Links-->
 <!-- <a href = 'store/display'> Visit Store </a><br> -->
 <a href = '/store/cart'> See Cart </a>
 
-<!-- Display store items
-{% for items in home_items %}
-    <h3>{{home_items.title}}</h3>
-    <h4>{{home_items.description}}</h4>
-    <h4>{{home_items.price}}</h4>
-{% endfor %} -->
-
-<!--Images-->
-
-<div class="polaroid1">
-    <img src="static/bubble.jpg" alt="Bubble Mask" style="width:100%">
-    <div class="container">
-        <p>Bubble Mask</p>
-        <p>~Mask made of the finest Gilly Weed Extract (MMO)~</p>
-    </div>
+<!-- Display store items -->
+<div class= row>
+<div class="col-md-4">
+{% for items in test_items %}
+<img src = {{items.image}}>
+    <h3>{{items.title}}</h3>
+    <h4>{{items.description}}</h4>
+    <h4>{{items.price}}</h4>
+    <a href = '/store/cart'>Add To Cart</a>
+{% endfor %}
 </div>
-
-<div class="polaroid2">
-    <img src="static/towel.jpg" alt="Towel" style="width:100%">
-    <div class="container">
-        <p>Towel</p>
-        <p> ~For all needs~ </p>
-    </div>
-</div>
-
-<div class="polaroid3">
-    <img src="static/forcefield.jpg" alt="Forcefield" style="width:100%">
-    <div class="container">
-        <p>Forcefield</p>
-        <p>~Mask made of the finest Gilly Weed Extract (MMO)~</p>
-    </div>
 </div>
 
 {%endblock%}
