@@ -2,8 +2,12 @@ html {
     color: crimson;
     text-align: center;
     background-image: url('space.jpg');
+    /* background-repeat: no-repeat;
+    background-size: 100% 100% */
+    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%
+    background-size: cover;
 }
 
 

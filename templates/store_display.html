@@ -1,4 +1,3 @@
-<!doctype html>
 
 {% extends 'base.html' %}
 
@@ -9,20 +8,13 @@
     <h3> Browse to your Commanders Content! </h3>
     
 <!--Links-->
-<!-- <a href = 'store/display'> Visit Store </a><br> -->
-<a href = '/store/cart'> See Cart </a>
+<a href = '/cart'> See Cart </a>
+<br><br>
+<a href="/cart/add">Add To Cart</a>
 
-<!-- Display store items -->
-<div class= row>
-<div class="col-md-4">
-{% for items in test_items %}
-<img src = {{items.image}}>
-    <h3>{{items.title}}</h3>
-    <h4>{{items.description}}</h4>
-    <h4>{{items.price}}</h4>
-    <a href = '/store/cart'>Add To Cart</a>
+{% for item in devices %}
+    <h2>{{ devices.title }}</h2>
+    <small>{{ devices.description }}</small>
 {% endfor %}
-</div>
-</div>
 
 {%endblock%}

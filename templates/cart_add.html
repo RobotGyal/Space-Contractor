@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+
+
+
+{% block content %}
+
+<title> Add Cart Page </title>
+
+
+<form method ='POST' action='/cart'> <!--Add items to cart-->
+    <fieldset>
+        <legend> Add Cart Items</legend>
+    <!--Title-->
+    <p>
+        <label for ='title' > Title </label><br>
+        <input type='text' name='title'>
+    </p>
+    <!--Description-->
+    <p>
+        <label for='description'>Description</label><br>
+        <input type='text' name='description' /> 
+    </p>
+    </fieldset>
+
+    <!--Add to Cart-->
+    <p>
+        <button type=submit'>Save Playlist</button>
+    </p>
+</form>
+
+{% endblock %}

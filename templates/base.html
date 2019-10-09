@@ -1,10 +1,16 @@
 <html>
+
+
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     {% block title %}
     {% endblock %}
 
 
 <body>
+
+    {% block content %}
+    {% endblock %}
+
 </body>
 
 
