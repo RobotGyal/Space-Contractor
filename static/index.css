@@ -76,3 +76,6 @@ div.container {
     box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
 
   }
+  small{
+    color: black
+  }
