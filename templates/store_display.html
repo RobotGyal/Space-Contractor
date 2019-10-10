@@ -8,13 +8,15 @@
     <h3> Browse to your Commanders Content! </h3>
     
 <!--Links-->
-<a href = '/cart'> See Cart </a>
+<a href = '/store/cart'> See Cart </a>
 <br><br>
 <a href="/cart/add">Add To Cart</a>
 
-{% for item in devices %}
-    <h2>{{ devices.title }}</h2>
-    <small>{{ devices.description }}</small>
+{% for item in cart_items %}
+    <h2><a href='/cart/{{ cart_items._id }}'>{{ item.title }}</a></h2>
+    <small>{{ item.description }}</small>
 {% endfor %}
-
 {%endblock%}
+
+
+<!-- <p><a href='/cart/{{cart._id }}/edit'>Edit</a></p> -->

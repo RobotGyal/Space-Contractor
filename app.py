@@ -13,8 +13,7 @@ db = client.space
 # sets up databases
 space_items = db.space_items    #sets up space items as a database
 cart_items = db.cart_items      #items for user to add to cart from space items
-devices = db.devices
-
+cart_items.drop()
 
 space_items = [
     {'title': 'Bubble Mask', 'description':'Vacuum Face Mask', 'price': '3000 sc', 'image': './static/bubble.jpg'},
@@ -37,11 +36,11 @@ def store_display():
 
 
 # ~~~~~~~~  CART  ~~~~~~~~
-
+# methods=['GET']
 # VIEWING cart homepage
-@app.route('/cart', methods=['GET'])
+@app.route('/cart')
 def cart_display():
-    return render_template('cart_display.html')
+    return render_template('cart_display.html', cart_items=cart_items.find())
 
 # ADD items to cart
 @app.route('/cart/add')
@@ -57,9 +56,22 @@ def cart_post():
         'title': request.form.get('title'),
         'description': request.form.get('description')
     }
-    cart_items.insert_one(cart)
-    return redirect(url_for('cart_display')) 
+    cart_id =cart_items.insert_one(cart).inserted_id
+    return redirect(url_for('cart_display', cart_id=cart_id)) 
 
+# Route to VIEW items in cart
+@app.route('/cart/<cart_id>')
+def cart_show(cart_id):
+    """Show a single cart item."""
+    cart = cart_items.find_one({'_id': ObjectId(cart_id)})
+    return render_template('cart_display.html', cart_items=cart_items, cart=cart)
+
+# #DELETE
+# @app.route('/cart_items/<cart_id>/delete', methods=['POST'])
+# def cart_delete(cart_id):
+#     """Delete one playlist."""
+#     cart_items.delete_one({'_id': ObjectId(cart_id)})
+#     return redirect(url_for('cart_display', cart_id=cart_id))
 
 
 if __name__=='__main__':

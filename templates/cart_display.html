@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<!--Title and Header-->
-    <h1>I-Planetery</h1>
-    <h3> Browse to your Commanders Content! </h3>
 
+<!--Title and Header-->
+<h1>I-Planetery</h1>
+<h3> Browse to your Commanders Content! </h3>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+{% for item in cart_items %}
+    <h2>{{ item.title }}</a></h2>
+    <small>{{ item.description }}</small>
+{% endfor %}
+
+    
 
 
 {% endblock %}
