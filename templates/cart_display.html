@@ -8,7 +8,7 @@
 
 {% endblock %}
 
-
+<br><br>
 
 {% block content %}
 <!-- 
@@ -17,10 +17,18 @@
 </form> -->
 
 {% for item in cart_items %}
-    <h2><a href='cart/item/{{item._id}}'> {{ item.title }}</a></h2>
-    <small>{{ item.description }}</small>
+    <h3><a href='cart/item/{{item._id}}'> {{ item.title }}</a></h3>
+    <h4>{{ item.description }}</h4>
 {% endfor %}
 
+<br><br><br>
+<!--Buttons-->
+<form action="/cart/add">
+    <button type ='submit'> Request Devices! </button>
+</form>
+<form action="/">
+    <button type ='submit'> Beam Me Home! </button>
+</form>
 
 {% endblock %}
 

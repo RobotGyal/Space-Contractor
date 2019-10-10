@@ -51,8 +51,6 @@ def devices_new():
     '''Create devices'''
     return render_template('cart_add.html')
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
-
 # Route for POSTING SINGLE items to cart
 @app.route('/cart/item', methods=['POST'])
 def cart_item_post():
@@ -70,10 +68,6 @@ def cart_item_show(cart_id):
     """Show a one cart item"""
     cart = cart_items.find_one({'_id': ObjectId(cart_id)})
     return render_template('item_display.html', cart_items=cart_items, cart=cart)
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
-
-
 
 # Route for POSTING items to cart
 @app.route('/cart', methods=['POST'])
@@ -94,6 +88,7 @@ def cart_show_all(cart_id):
     return render_template('cart_display.html', cart_items=cart_items, cart=cart)
 
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 
 #Route for editing cart items
 @app.route('/cart/<cart_id>/edit')
@@ -114,13 +109,15 @@ def cart_update(cart_id):
         {'_id': ObjectId(cart_id)},
         {'$set': updated_cart})
     return redirect(url_for('cart_display', cart_id=cart_id))
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+
 
 # Route for deleting cart items
-@app.route('/cart_items/<cart_id>/delete', methods=['POST'])
+@app.route('/cart/<cart_id>/delete', methods=['POST'])
 def cart_delete(cart_id):
     """Delete one playlist."""
     cart_items.delete_one({'_id': ObjectId(cart_id)})
-    return redirect(url_for('cart_display', cart_id=cart_id))
+    return redirect(url_for('cart_display'))
 
 
 if __name__=='__main__':

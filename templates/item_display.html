@@ -5,6 +5,7 @@
 <!--Title and Header-->
 <h1>I-Planetery</h1>
 <h2> Are you changing youre mind? </h2>
+<br><br>
 
 {% endblock %}
 
@@ -12,10 +13,26 @@
 
 {% block content %}
 
-<h2>{{ cart.title }}</h2>
-<small>{{cart.description }}</small>
+<h3>{{ cart.title }}</h3>
+<h4>{{cart.description }}</h4>
 
+<p><form action='/cart/{{cart._id}}/edit'>
+    <button type='submit'>Edit</button>
+</form></p>
 
+<!-- Delete button -->
+<p><form method='POST' action='/cart/{{cart._id}}/delete'>
+    <button type='submit'>Delete</button>
+</form></p>
+
+<br><br><br><br>
+<!--Buttons-->
+<form action="/cart/add">
+    <button type ='submit'> Request Devices! </button>
+</form>
+<form action="/">
+    <button type ='submit'> Beam Me Home! </button>
+</form>
 
 {% endblock %}
 

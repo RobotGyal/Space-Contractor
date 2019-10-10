@@ -1,0 +1,31 @@
+<!-- templates/playlists_edit.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/cart/{{cart._id}}'>
+    <fieldset>
+            <legend> Edit Cart Items</legend>
+        <!--Title-->
+        <p>
+            <label for ='title' > Title </label><br>
+            <input type='text' name='title'>
+        </p>
+        <!--Description-->
+        <p>
+            <label for='description'>Description</label><br>
+            <input type='text' name='description' /> 
+        </p>
+        </fieldset>
+    
+        <!--Add to Cart-->
+        <p>
+            <button type=submit'> Submit Item Request </button>
+        </p>
+    </form>
+    
+    <form action="/">
+        <button type ='submit'> Beam Me Home! </button>
+    </form>
+</form>
+
+{% endblock %}

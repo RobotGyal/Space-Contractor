@@ -1,5 +1,5 @@
 html {
-    color: rgba(10, 10, 243, 0.774);
+    color: whitesmoke;
     text-align: center;
     background-image: url('space.jpg');
     /* background-repeat: no-repeat;
@@ -16,6 +16,10 @@ h1{
   font-size: 65px;
   color: rgb(3, 3, 129);
   text-shadow: rgb(212, 221, 241) 1px 0 10px;
+}
+
+h3{
+  color: rgba(10, 10, 243, 0.774);
 }
 
 
