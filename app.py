@@ -7,7 +7,7 @@ from pymongo import MongoClient
 #framework initializing 
 app = Flask(__name__)
 load_dotenv()
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Space-Contractor')
 client = MongoClient(host=f'{host}?retryWrites=false')
 db = client.space
 
