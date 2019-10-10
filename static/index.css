@@ -1,5 +1,5 @@
 html {
-    color: crimson;
+    color: rgba(10, 10, 243, 0.774);
     text-align: center;
     background-image: url('space.jpg');
     /* background-repeat: no-repeat;
@@ -11,25 +11,33 @@ html {
 }
 
 
+h1{
+  font-family: cursive, Verdana, Tahoma, fantasy;
+  font-size: 65px;
+  color: rgb(3, 3, 129);
+  text-shadow: rgb(212, 221, 241) 1px 0 10px;
+}
+
+
 div.polaroid1 {
     width: 20%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
-    margin: 75px 80px
+    margin: 50px 80px
   }
 
   div.polaroid2 {
     width: 20%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
-    margin: 75px 80px
+    margin: 50px 80px
   }
 
   div.polaroid3 {
     width: 20%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
-    margin: 75px 80px
+    margin: 50px 80px
   }
 
 
@@ -58,4 +66,9 @@ div.container {
 
   div.class{
     color: white
+  }
+
+  button{
+    box-shadow: 0 4px 8px 0 rgba(238, 232, 232, 0.767), 0 6px 20px 0 rgba(255, 253, 253, 0.952);
+
   }

@@ -66,12 +66,33 @@ def cart_show(cart_id):
     cart = cart_items.find_one({'_id': ObjectId(cart_id)})
     return render_template('cart_display.html', cart_items=cart_items, cart=cart)
 
-# #DELETE
-# @app.route('/cart_items/<cart_id>/delete', methods=['POST'])
-# def cart_delete(cart_id):
-#     """Delete one playlist."""
-#     cart_items.delete_one({'_id': ObjectId(cart_id)})
-#     return redirect(url_for('cart_display', cart_id=cart_id))
+
+#Route for editing cart items
+@app.route('/cart/<cart_id>/edit')
+def cart_edit(cart_id):
+    """Show the edited cart"""
+    cart = cart_items.find_one({'_id': ObjectId(cart_id)})
+    return render_template('cart_edit.html', cart=cart, title='Edit')
+
+#Route for updating cart
+@app.route('/cart/<cart_id>', methods=['POST'])
+def cart_update(cart_id):
+    """Submit an edited playlist."""
+    updated_cart = {
+        'title': request.form.get('title'),
+        'description': request.form.get('description'),
+    }
+    cart_items.update_one(
+        {'_id': ObjectId(cart_id)},
+        {'$set': updated_cart})
+    return redirect(url_for('cart_display', cart_id=cart_id))
+
+# Route for deleting cart items
+@app.route('/cart_items/<cart_id>/delete', methods=['POST'])
+def cart_delete(cart_id):
+    """Delete one playlist."""
+    cart_items.delete_one({'_id': ObjectId(cart_id)})
+    return redirect(url_for('cart_display', cart_id=cart_id))
 
 
 if __name__=='__main__':

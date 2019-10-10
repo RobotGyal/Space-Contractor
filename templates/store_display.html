@@ -8,15 +8,51 @@
     <h3> Browse to your Commanders Content! </h3>
     
 <!--Links-->
-<a href = '/store/cart'> See Cart </a>
-<br><br>
-<a href="/cart/add">Add To Cart</a>
+<form action ='/cart'>
+    <button type='submit'> See Cart </button>
+</form>
+<!-- <a href = '/cart'> See Cart </a> -->
 
-{% for item in cart_items %}
+<!-- <a href="/cart/add">Add To Cart</a> -->
+
+<!-- {% for item in cart_items %}
     <h2><a href='/cart/{{ cart_items._id }}'>{{ item.title }}</a></h2>
     <small>{{ item.description }}</small>
-{% endfor %}
+{% endfor %} -->
+
+
+
+
+<!--Buttons-->
+<form action="/cart/add">
+    <button type ='submit'>Go to Request Devices! </button>
+</form>
+
+<!--Images-->
+<div class="polaroid1">
+    <img src="static/bubble.jpg" alt="Bubble Mask" style="width:100%">
+    <div class="container">
+        <p>Bubble Mask</p>
+        <p>~Mask made of the finest Gilly Weed Extract (MMO)~</p>
+    </div>
+</div>
+
+<div class="polaroid2">
+    <img src="static/towel.jpg" alt="Towel" style="width:100%">
+    <div class="container">
+        <p>Towel</p>
+        <p> ~For all needs~ </p>
+    </div>
+</div>
+
+<div class="polaroid3">
+    <img src="static/forcefield.jpg" alt="Forcefield" style="width:100%">
+    <div class="container">
+        <p>Forcefield</p>
+        <p>~Mask made of the finest Gilly Weed Extract (MMO)~</p>
+    </div>
+</div>
+
+
+
 {%endblock%}
-
-
-<!-- <p><a href='/cart/{{cart._id }}/edit'>Edit</a></p> -->

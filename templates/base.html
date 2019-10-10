@@ -1,12 +1,14 @@
 <html>
 
-
+<head>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     {% block title %}
     {% endblock %}
 
+</head>
 
 <body>
+    <!-- {% include 'partials/navbar.html' %} -->
 
     {% block content %}
     {% endblock %}
