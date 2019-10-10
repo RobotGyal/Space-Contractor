@@ -13,13 +13,15 @@ db = client.space
 # sets up databases
 space_items = db.space_items    #sets up space items as a database
 cart_items = db.cart_items      #items for user to add to cart from space items
+space_items.drop()   #sets up space items as a database
 cart_items.drop()
 
-space_items = [
+space_items.insert_many( [
     {'title': 'Bubble Mask', 'description':'Vacuum Face Mask', 'price': '3000 sc', 'image': './static/bubble.jpg'},
     {'title': 'Towel', 'description':'For all needs', 'price': '42 sc'},
     {'title': 'Forcefield', 'description': 'Protect from outside intrusion', 'price': '5,000,000 sc'}
-]
+])
+
 
 
 # Main route
@@ -37,6 +39,7 @@ def store_display():
 
 # ~~~~~~~~  CART  ~~~~~~~~
 # methods=['GET']
+
 # VIEWING cart homepage
 @app.route('/cart')
 def cart_display():
@@ -48,9 +51,33 @@ def devices_new():
     '''Create devices'''
     return render_template('cart_add.html')
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+
+# Route for POSTING SINGLE items to cart
+@app.route('/cart/item', methods=['POST'])
+def cart_item_post():
+    '''Submit single item to cart'''
+    cart= {
+        'title': request.form.get('title'),
+        'description': request.form.get('description')
+    }
+    cart_id =cart_items.insert_one(cart).inserted_id
+    return redirect(url_for('item_display', cart_id=cart_id)) 
+
+# Route to VIEW ONE items in cart
+@app.route('/cart/item/<cart_id>')
+def cart_item_show(cart_id):
+    """Show a one cart item"""
+    cart = cart_items.find_one({'_id': ObjectId(cart_id)})
+    return render_template('item_display.html', cart_items=cart_items, cart=cart)
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+
+
+
 # Route for POSTING items to cart
 @app.route('/cart', methods=['POST'])
-def cart_post():
+def cart_all_post():
     '''Submit items to cart'''
     cart= {
         'title': request.form.get('title'),
@@ -59,12 +86,13 @@ def cart_post():
     cart_id =cart_items.insert_one(cart).inserted_id
     return redirect(url_for('cart_display', cart_id=cart_id)) 
 
-# Route to VIEW items in cart
+# Route to VIEW ALL items in cart
 @app.route('/cart/<cart_id>')
-def cart_show(cart_id):
-    """Show a single cart item."""
+def cart_show_all(cart_id):
+    """Show a all cart items."""
     cart = cart_items.find_one({'_id': ObjectId(cart_id)})
     return render_template('cart_display.html', cart_items=cart_items, cart=cart)
+
 
 
 #Route for editing cart items

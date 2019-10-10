@@ -11,14 +11,15 @@
 
 
 {% block content %}
+<!-- 
+<form action ='/cart/item/{{cart_id}}'>
+    <button type='submit'> See Individual Item </button>
+</form> -->
 
 {% for item in cart_items %}
-    <h2>{{ item.title }}</a></h2>
+    <h2><a href='cart/item/{{item._id}}'> {{ item.title }}</a></h2>
     <small>{{ item.description }}</small>
-
 {% endfor %}
-
-
 
 
 {% endblock %}
