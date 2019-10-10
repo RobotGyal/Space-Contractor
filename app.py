@@ -9,7 +9,7 @@ app = Flask(__name__)
 load_dotenv()
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Space-Contractor')
 client = MongoClient(host=f'{host}?retryWrites=false')
-db = client.space
+db = client.get_default_database()
 
 # sets up databases
 space_items = db.space_items    #sets up space items as a database
